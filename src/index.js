@@ -12,7 +12,6 @@ import './css/bootstrap.min.css';
 import './css/font-awesome.min.css';
 import './css/style.css';
 
-
 /*
 Stateless Router
 Component Setup
