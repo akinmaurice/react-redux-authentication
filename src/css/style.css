@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'panama';
+  src: url("./fonts/panama-bold-webfont.woff2") format("woff2"), url("./fonts/panama-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    padding-top: 55px;
+    font-family: panama;
+    background: #FFF;
+    color: #000 !important;
+    font-size: 13px;
+}
+
+.navbar-dark {
+background: linear-gradient(90deg,#e82c75,#FFC107);
+}
+
+.navbar-brand {
+  color: #000 !important;
+  font-family: "Panama";
+  letter-spacing: -1px;
+  word-spacing: 0px;
+  font-weight: 600;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none;
+  text-indent: 0px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.loadingSvg {
+  max-height: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  min-width: 40px;
+  height: 40px;
+  width: 40px;
+}
