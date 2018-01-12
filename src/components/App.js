@@ -7,8 +7,8 @@ import { postsFetchData } from '../actions/posts';
 function mapStatetoProps(state) {
   return {
     posts: state.posts,
-    hasErrored: state.hasErrored,
-    isLoading: state.isLoading,
+    hasErrored: state.postsHasErrored,
+    isLoading: state.postsIsLoading,
   };
 }
 
@@ -27,7 +27,7 @@ class App extends Component {
     let view = <div />;
     if (this.props.hasErrored) {
       view = (
-        <div className="container">
+        <div className="container text-center">
           <div className="row">
             <div className="col-lg-12">
               There Was an Error Loading Data
@@ -37,10 +37,10 @@ class App extends Component {
       );
     } else if (this.props.isLoading) {
       view = (
-        <div className="container">
+        <div className="container text-center">
           <div className="row">
             <div className="col-lg-12">
-              Loading Data...
+              <i className="fa fa-2x fa-circle-o-notch fa-spin" />
             </div>
           </div>
         </div>
@@ -48,6 +48,7 @@ class App extends Component {
     } else {
       view = <PhotoGrid posts={this.props.posts} />;
     }
+    console.log(this.props);
     return (
       <div>
         <Header />
