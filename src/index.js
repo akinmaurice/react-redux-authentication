@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
+import store from './store';
 import App from './components/App';
 import Single from './components/Single';
 
@@ -18,14 +19,16 @@ Component Setup
 */
 
 const Root = () => (
-  <Router>
-    <div>
-      <Switch>
-        <Route path="/" exact component={App} />
-        <Route path="/view/:postId" exact component={Single} />
-      </Switch>
-    </div>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/" exact component={App} />
+          <Route path="/view/:postId" exact component={Single} />
+        </Switch>
+      </div>
+    </Router>
+  </Provider>
 );
 render(<Root />, document.querySelector('#root'));
 registerServiceWorker();
