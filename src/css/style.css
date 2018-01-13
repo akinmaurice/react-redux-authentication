@@ -6,7 +6,7 @@
 }
 
 body {
-    padding-top: 55px;
+    padding-top: 90px;
     font-family: panama;
     background: #FFF;
     color: #000 !important;
@@ -81,4 +81,8 @@ max-height: 450px;
 .likeBtn {
   background-color: #FFF;
   border: none;
+}
+
+.navLink {
+  color: #000 !important;
 }

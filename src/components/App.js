@@ -48,7 +48,6 @@ class App extends Component {
     } else {
       view = <PhotoGrid posts={this.props.posts} />;
     }
-    console.log(this.props);
     return (
       <div>
         <Header />

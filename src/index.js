@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 import store from './store';
 import App from './components/App';
 import Single from './components/Single';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import NotFound from './components/NotFound';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -24,6 +27,9 @@ const Root = () => (
         <Switch>
           <Route path="/" exact component={App} />
           <Route path="/view/:postId" exact component={Single} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     </Router>
