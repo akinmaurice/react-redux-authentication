@@ -42,3 +42,43 @@ background: linear-gradient(90deg,#e82c75,#FFC107);
   height: 40px;
   width: 40px;
 }
+
+.headTitle {
+  color: #2857bd !important;
+}
+
+.image-wrap img {
+width: 100%;
+min-height: 450px;
+height: 450px;
+max-height: 450px;
+}
+
+.postFooter {
+  font-size: 10px;
+  color: #2857bd !important;
+}
+
+.round {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background-color: #000;
+  color: #e82c75 !important;
+}
+.round.round-lg {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  font-size: 1.5em;
+}
+
+.likeBtn {
+  background-color: #FFF;
+  border: none;
+}
