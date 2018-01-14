@@ -23,7 +23,7 @@ const PostCard = (props) => {
             <i className="fa fa-3x fa-heart-o" />
           </li>
         </ul>
-        <p>100 Likes </p>
+        <p>{details.urlId} Likes </p>
       </div>
     </div>
   );
