@@ -30,6 +30,7 @@ class App extends Component {
         <div className="container text-center">
           <div className="row">
             <div className="col-lg-12">
+              <br />
               There Was an Error Loading Data
             </div>
           </div>
@@ -40,6 +41,7 @@ class App extends Component {
         <div className="container text-center">
           <div className="row">
             <div className="col-lg-12">
+              <br />
               <i className="fa fa-2x fa-circle-o-notch fa-spin" />
             </div>
           </div>

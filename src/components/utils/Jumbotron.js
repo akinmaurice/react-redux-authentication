@@ -10,12 +10,14 @@ const Jumbotron = props => (
         </div>
       </div>
       <div className="row text-center">
-        <div className="col-lg-12">
+        <div className="col-lg-3 col-md-3 col-sm-3 col-12" />
+        <div className="col-lg-6 col-md-6 col-sm-6 col-12">
           <p className="homeText">
-            Text Here
+            Instagram Clone SPA (Single Page Application) Built using React JS, Redux,  React-Router, Redux-Thunk
           </p>
           <br />
         </div>
+        <div className="col-lg-3 col-md-3 col-sm-3 col-12" />
       </div>
       <div className="row text-center">
         <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12" />
