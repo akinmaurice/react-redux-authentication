@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Header = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-inverse fixed-top">
-    <div className="container-fluid">
-      <Link to="/" className="navbar-brand py-0">GramClone </Link>
+function mapStatetoProps(state) {
+  return {
+    user: state.user,
+    authenticated: state.authenticated,
+  };
+}
+
+
+class Header extends Component {
+  componentDidMount() {
+  }
+  render() {
+    let navLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link to="/login" className="navLink">Login</Link> &nbsp;
@@ -13,7 +23,25 @@ const Header = () => (
           <Link to="/register" className="navLink">Register</Link>
         </li>
       </ul>
-    </div>
-  </nav>
-);
-export default Header;
+    );
+    if (this.props.authenticated) {
+      const { email } = this.props.user;
+      navLinks = (
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link to="/profile" className="navLink">{email}</Link> &nbsp;
+          </li>
+        </ul>
+      );
+    }
+    return (
+      <nav className="navbar navbar-expand-lg navbar-dark bg-inverse fixed-top">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand py-0">GramClone </Link>
+          {navLinks}
+        </div>
+      </nav>
+    );
+  }
+}
+export default connect(mapStatetoProps)(Header);

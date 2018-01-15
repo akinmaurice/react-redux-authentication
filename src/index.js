@@ -22,7 +22,7 @@ import './css/style.css';
  Check if user token exists
  then dispatch AUTHENTICATED Action
 */
-const user = localStorage.getItem('user_token');
+const user = localStorage.getItem('token');
 
 if (user) {
   store.dispatch(authenticated());

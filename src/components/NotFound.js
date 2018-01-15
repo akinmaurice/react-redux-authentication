@@ -8,10 +8,10 @@ const NotFound = () => (
       <div className="col-lg-12">
         <h3 className="headTitle">
              404
-          <Link to="/">
-             Go back Home
-          </Link>
         </h3>
+        <Link to="/">
+             Go back Home
+        </Link>
       </div>
     </div>
   </div>

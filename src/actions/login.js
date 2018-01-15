@@ -1,4 +1,4 @@
-// Import axios
+// Import axios and React Cookie
 import axios from 'axios';
 
 // When Login Is not Succesful
@@ -52,10 +52,12 @@ export function loginFetchData() {
     await axios.post('http://localhost:3001/user/login', postRequest)
       .then((response) => {
         dispatch(loginIsLoading(false));
-        console.log(response.data);
-        const user = response.data;
-        dispatch(loginSuccess(user));
+        console.log(response.data.token);
+        const user = response.data.userDetails;
         // Save Token to Storage
+        localStorage.setItem('token', response.data.token);
+        // Dispatch User Authenticated Action
+        dispatch(loginSuccess(user));
         // Dispatch Authenticated Action
         dispatch(authenticated());
         // Redirect User to the Home Page
