@@ -2,7 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { store, persistor } from './store';
 import App from './components/App';
 import Single from './components/Single';
 import Login from './components/auth/Login';
@@ -33,17 +34,19 @@ Component Setup
 
 const Root = () => (
   <Provider store={store}>
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/" exact component={App} />
-          <Route path="/view/:postId" exact component={Single} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
-    </Router>
+    <PersistGate persistor={persistor}>
+      <Router>
+        <div>
+          <Switch>
+            <Route path="/" exact component={App} />
+            <Route path="/view/:postId" exact component={Single} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </Router>
+    </PersistGate>
   </Provider>
 );
 render(<Root />, document.querySelector('#root'));
