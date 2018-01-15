@@ -34,12 +34,3 @@ export function authenticated(state = false, action) {
   }
 }
 
-export function unAuthenticated(state = true, action) {
-  switch (action.type) {
-    case 'UNAUTHENTICATED':
-      return action.unAuthenticated;
-    default:
-      return state;
-  }
-}
-

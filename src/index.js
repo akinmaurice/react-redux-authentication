@@ -8,9 +8,15 @@ import App from './components/App';
 import Single from './components/Single';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Logout from './components/auth/Logout';
 import NotFound from './components/NotFound';
+import Profile from './components/Profile';
 // import authenticated action from  Login action
 import { authenticated } from './actions/login';
+
+// Import HOC MiddleWares
+import requireAuth from './components/hoc/require_auth';
+import noRequireAuth from './components/hoc/no_require_auth';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -40,8 +46,10 @@ const Root = () => (
           <Switch>
             <Route path="/" exact component={App} />
             <Route path="/view/:postId" exact component={Single} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/register" exact component={Register} />
+            <Route path="/login" exact component={noRequireAuth(Login)} />
+            <Route path="/register" exact component={noRequireAuth(Register)} />
+            <Route path="/logout" exact component={requireAuth(Logout)} />
+            <Route path="/profile" exact component={requireAuth(Profile)} />
             <Route component={NotFound} />
           </Switch>
         </div>

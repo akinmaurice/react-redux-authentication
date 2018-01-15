@@ -31,6 +31,9 @@ class Header extends Component {
           <li className="nav-item">
             <Link to="/profile" className="navLink">{email}</Link> &nbsp;
           </li>
+          <li className="nav-item">
+            <Link to="/logout" className="navLink">Logout</Link> &nbsp;
+          </li>
         </ul>
       );
     }

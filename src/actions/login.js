@@ -52,7 +52,6 @@ export function loginFetchData() {
     await axios.post('http://localhost:3001/user/login', postRequest)
       .then((response) => {
         dispatch(loginIsLoading(false));
-        console.log(response.data.token);
         const user = response.data.userDetails;
         // Save Token to Storage
         localStorage.setItem('token', response.data.token);
