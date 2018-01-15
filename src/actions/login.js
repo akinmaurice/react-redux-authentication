@@ -25,6 +25,14 @@ export function loginSuccess(user) {
   };
 }
 
+// Authenticated Action
+export function authenticated() {
+  return {
+    type: 'AUTHENTICATED',
+    authenticated: true,
+  };
+}
+
 // Action to Fetch data from APi here
 export function loginFetchData() {
   // Post Body Here
@@ -48,8 +56,9 @@ export function loginFetchData() {
         const user = response.data;
         dispatch(loginSuccess(user));
         // Save Token to Storage
+        // Dispatch Authenticated Action
+        dispatch(authenticated());
         // Redirect User to the Home Page
-        window.location.href = `${CLIENT_ROOT_URL}/`;
       })
       .catch((error) => {
         dispatch(loginHasErrored(true));

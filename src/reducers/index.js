@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { posts, postsHasErrored, postsIsLoading } from './posts';
-import { user, loginHasErrored, loginIsLoading } from './login';
+import { user, loginHasErrored, loginIsLoading, authenticated } from './login';
 
 export default combineReducers({
   posts,
@@ -9,5 +9,6 @@ export default combineReducers({
   user,
   loginHasErrored,
   loginIsLoading,
+  authenticated,
 });
 

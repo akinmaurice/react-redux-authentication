@@ -8,6 +8,8 @@ import Single from './components/Single';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import NotFound from './components/NotFound';
+// import authenticated action from  Login action
+import { authenticated } from './actions/login';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -15,6 +17,15 @@ import './css/bootstrap.min.css';
 import './css/font-awesome.min.css';
 import './css/style.css';
 
+/*
+ Check if user token exists
+ then dispatch AUTHENTICATED Action
+*/
+const user = localStorage.getItem('user_token');
+
+if (user) {
+  store.dispatch(authenticated());
+}
 /*
 Stateless Router
 Component Setup

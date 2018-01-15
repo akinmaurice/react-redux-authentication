@@ -25,3 +25,21 @@ export function user(state = [], action) {
   }
 }
 
+export function authenticated(state = false, action) {
+  switch (action.type) {
+    case 'AUTHENTICATED':
+      return action.authenticated;
+    default:
+      return state;
+  }
+}
+
+export function unAuthenticated(state = true, action) {
+  switch (action.type) {
+    case 'UNAUTHENTICATED':
+      return action.unAuthenticated;
+    default:
+      return state;
+  }
+}
+
