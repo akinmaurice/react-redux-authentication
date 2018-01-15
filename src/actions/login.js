@@ -60,6 +60,7 @@ export function loginFetchData() {
         // Dispatch Authenticated Action
         dispatch(authenticated());
         // Redirect User to the Home Page
+        console.log('Ready to redirect Here');
       })
       .catch((error) => {
         dispatch(loginHasErrored(true));
