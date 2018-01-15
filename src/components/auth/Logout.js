@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // Import Logout Action
 import logoutUser from '../../actions/logout';
@@ -20,8 +20,13 @@ class Logout extends Component {
   componentWillMount() {
     this.props.logoutUser();
   }
+
   render() {
-    return null;
+    return (
+      <div>
+        Signed Out...
+      </div>
+    );
   }
 }
 

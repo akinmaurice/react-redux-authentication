@@ -6,7 +6,7 @@
 }
 
 body {
-    padding-top: 90px;
+    padding-top: 45px;
     font-family: panama;
     background: #FFF;
     color: #000 !important;
@@ -126,4 +126,44 @@ max-height: 450px;
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-bottom: 0;
+  background: #f9f9f9;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+
+.jumboButton {
+  font-size: 16px;
+  background: linear-gradient(90deg,#3a7bd5,#3a6073);
+  color: #000000 !important;
+  margin: 5px;
+}
+
+.homeFont {
+  font-family: "Panama";
+  font-size: 30px;
+  line-height: 57.5px;
+  letter-spacing: -1px;
+  word-spacing: 0px;
+  font-weight: 600;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none;
+  text-indent: 0px;
+  color: #564d4d;
+}
+
+.homeText {
+font-size: 15px;
+color: #564d4d;
+font-family: "Panama";
 }

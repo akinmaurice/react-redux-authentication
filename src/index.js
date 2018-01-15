@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { store, persistor } from './store';
+import Main from './components/Main';
 import App from './components/App';
 import Single from './components/Single';
 import Login from './components/auth/Login';
@@ -44,7 +45,8 @@ const Root = () => (
       <Router>
         <div>
           <Switch>
-            <Route path="/" exact component={App} />
+            <Route path="/" exact component={noRequireAuth(Main)} />
+            <Route path="/timeline" exact component={requireAuth(App)} />
             <Route path="/view/:postId" exact component={Single} />
             <Route path="/login" exact component={noRequireAuth(Login)} />
             <Route path="/register" exact component={noRequireAuth(Register)} />
