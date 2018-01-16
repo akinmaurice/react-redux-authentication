@@ -10,7 +10,7 @@ const PhotoGrid = (props) => {
       <div className="row">
         <div className="col-lg-12">
           <h3 className="headTitle">
-             GramClone
+            Todo List
           </h3>
         </div>
       </div>

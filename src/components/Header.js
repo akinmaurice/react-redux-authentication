@@ -40,7 +40,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-inverse fixed-top">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand py-0">GramClone </Link>
+          <Link to="/" className="navbar-brand py-0">ReactAuth </Link>
           {navLinks}
         </div>
       </nav>

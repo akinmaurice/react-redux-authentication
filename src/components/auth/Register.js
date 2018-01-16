@@ -8,7 +8,7 @@ const Register = () => (
         <div className="col-lg-12">
           <h3>
             <Link to="/" className="headTitle">
-             GramClone
+            React-Redux Auth
             </Link>
           </h3>
           <h6>
