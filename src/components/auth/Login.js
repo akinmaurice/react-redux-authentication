@@ -22,12 +22,13 @@ function mapStatetoProps(state) {
   return {
     hasErrored: state.loginHasErrored,
     isLoading: state.loginIsLoading,
+    errorMessage: state.loginErrorMessage,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchData: () => dispatch(loginFetchData()),
+    fetchData: loginUser => dispatch(loginFetchData(loginUser)),
   };
 }
 
@@ -41,14 +42,23 @@ class Login extends Component {
   onSubmit(event) {
     event.preventDefault();
     // On Submit Get the User Details from Form and Post
-    this.props.fetchData();
+    const loginUser = {
+      email: this.email.value,
+      password: this.password.value,
+    };
+    this.props.fetchData(loginUser);
   }
 
   render() {
+    const { errorMessage } = this.props;
+    const { hasErrored } = this.props;
+    const { isLoading } = this.props;
     let view = '';
-    if (this.props.hasErrored) {
+    if (hasErrored && errorMessage === '') {
       view = 'There Was an Error Loggin you in!';
-    } else if (this.props.isLoading) {
+    } else if (hasErrored && errorMessage !== '') {
+      view = errorMessage;
+    } else if (isLoading) {
       view = <i className="fa fa-2x fa-circle-o-notch fa-spin" />;
     }
     return (
@@ -59,10 +69,10 @@ class Login extends Component {
             <div className="col-lg-12">
               <form className="form-signin" onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <input type="email" name="email" placeholder="Email Address" className="form-control" />
+                  <input ref={(input) => { this.email = input; }} type="email" name="email" placeholder="Email Address" className="form-control" />
                 </div>
                 <div className="form-group">
-                  <input type="password" name="password" placeholder="Password" className="form-control" />
+                  <input ref={(input) => { this.password = input; }} type="password" name="password" placeholder="Password" className="form-control" />
                 </div>
                 <div className="form-group">
                   <button className="btn btn-primary btn-block">

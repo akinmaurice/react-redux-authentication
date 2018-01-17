@@ -9,7 +9,7 @@ export function registrationHasErrored(bool) {
   };
 }
 
-// Action for when Login is in Progress
+// Action for when Registration is in Progress
 export function registrationIsLoading(bool) {
   return {
     type: 'REGISTRATION_IS_LOADING',
@@ -25,6 +25,15 @@ export function registrationSuccess(bool) {
   };
 }
 
+// Registration Error Handler
+export function registrationErrorMessage(string) {
+  return {
+    type: 'REGISTRATION_ERROR_MESSAGE',
+    registrationErrorMessage: string,
+  };
+}
+
+
 // Action to Fetch data from APi here
 export function registrationFetchData(newUser) {
   // Post Body Here
@@ -39,7 +48,6 @@ export function registrationFetchData(newUser) {
       'Content-Type': 'application/json',
     },
   };
-  console.log(postRequest);
   // Dispatch Loading Status to Component
   return async (dispatch) => {
     dispatch(registrationIsLoading(true));
@@ -51,7 +59,8 @@ export function registrationFetchData(newUser) {
         const apiResponse = response.data;
         // If response is not 200
         if (apiResponse.status !== 200) {
-          return dispatch(registrationHasErrored(true));
+          dispatch(registrationHasErrored(true));
+          dispatch(registrationErrorMessage(apiResponse.message));
         }
         // Dispatch User Authenticated Action
         return dispatch(registrationSuccess(true));

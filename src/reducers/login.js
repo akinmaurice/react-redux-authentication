@@ -16,6 +16,16 @@ export function loginIsLoading(state = false, action) {
   }
 }
 
+export function loginErrorMessage(state = '', action) {
+  switch (action.type) {
+    case 'LOGIN_ERROR_MESSAGE':
+      return action.loginErrorMessage;
+    default:
+      return state;
+  }
+}
+
+
 export function user(state = [], action) {
   switch (action.type) {
     case 'LOGIN_SUCCESS':

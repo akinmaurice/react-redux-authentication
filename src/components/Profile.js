@@ -7,6 +7,7 @@ const Profile = () => (
     <div className="container text-center">
       <div className="row">
         <div className="col-lg-12">
+          <br />
           Hi Profile Here
         </div>
       </div>

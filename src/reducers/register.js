@@ -16,6 +16,15 @@ export function registrationIsLoading(state = false, action) {
   }
 }
 
+export function registrationErrorMessage(state = '', action) {
+  switch (action.type) {
+    case 'REGISTRATION_ERROR_MESSAGE':
+      return action.registrationErrorMessage;
+    default:
+      return state;
+  }
+}
+
 export function registrationSuccess(state = false, action) {
   switch (action.type) {
     case 'REGISTRATION_SUCCESS':

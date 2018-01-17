@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
 import { registrationFetchData } from '../../actions/register';
 
 const navHead = (
@@ -24,6 +23,7 @@ function mapStatetoProps(state) {
     hasErrored: state.registrationHasErrored,
     isLoading: state.registrationIsLoading,
     success: state.registrationSuccess,
+    errorMessage: state.registrationErrorMessage,
   };
 }
 
@@ -52,10 +52,15 @@ class Register extends Component {
   }
 
   render() {
+    const { errorMessage } = this.props;
+    const { hasErrored } = this.props;
+    const { isLoading } = this.props;
     let view = '';
-    if (this.props.hasErrored) {
+    if (hasErrored && errorMessage === '') {
       view = 'There Was an Error Creating your Account!';
-    } else if (this.props.isLoading) {
+    } else if (hasErrored && errorMessage !== '') {
+      view = errorMessage;
+    } else if (isLoading) {
       view = <i className="fa fa-2x fa-circle-o-notch fa-spin" />;
     }
     return (

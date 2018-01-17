@@ -17,6 +17,15 @@ export function loginIsLoading(bool) {
   };
 }
 
+// Login Error Handler
+export function loginErrorMessage(string) {
+  return {
+    type: 'LOGIN_ERROR_MESSAGE',
+    loginErrorMessage: string,
+  };
+}
+
+
 // Action for When Data Fecth is Successful
 export function loginSuccess(user) {
   return {
@@ -34,12 +43,12 @@ export function authenticated() {
 }
 
 // Action to Fetch data from APi here
-export function loginFetchData() {
+export function loginFetchData(loginUser) {
   // Post Body Here
   const postRequest = {
     method: 'POST',
-    email: 'akinyemi@gmail.com',
-    password: 'Akin',
+    email: loginUser.email,
+    password: loginUser.password,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -52,9 +61,17 @@ export function loginFetchData() {
     await axios.post('http://localhost:3001/user/login', postRequest)
       .then((response) => {
         dispatch(loginIsLoading(false));
-        const user = response.data.userDetails;
+        // Get Reponse
+        const apiResponse = response.data;
+        // If response is not 200
+        if (apiResponse.status !== 200) {
+          dispatch(loginHasErrored(true));
+          dispatch(loginErrorMessage(apiResponse.message));
+          return;
+        }
+        const user = apiResponse.userDetails;
         // Save Token to Storage
-        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('token', apiResponse.token);
         // Dispatch User Authenticated Action
         dispatch(loginSuccess(user));
         // Dispatch Authenticated Action
