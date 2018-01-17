@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Footer from '../utils/Footer';
 import { loginFetchData } from '../../actions/login';
 
 const navHead = (
@@ -99,14 +100,15 @@ class Login extends Component {
                 <div className="form-group">
                   Dont have an account?
                   <br />
-                  <a href="/register">
+                  <Link to="/register">
                   Create Account
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

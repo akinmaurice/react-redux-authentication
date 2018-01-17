@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import { connect } from 'react-redux';
+import Header from './Header';
+import Footer from './utils/Footer';
 
 const navHead = (
   <div className="row">
@@ -53,6 +54,7 @@ class NewTodo extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

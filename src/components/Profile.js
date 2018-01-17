@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './utils/Footer';
 
 const navHead = (
   <div className="row">
@@ -23,6 +24,7 @@ const Profile = () => (
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 );
 export default Profile;

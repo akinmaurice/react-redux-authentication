@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './utils/Footer';
 
 const Single = () => (
   <div>
@@ -11,6 +12,7 @@ const Single = () => (
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 );
 export default Single;

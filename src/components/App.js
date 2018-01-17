@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import Grid from './Grid';
+import Footer from './utils/Footer';
 import { postsFetchData } from '../actions/posts';
 
 function mapStatetoProps(state) {
@@ -54,6 +55,7 @@ class App extends Component {
       <div>
         <Header />
         {view}
+        <Footer />
       </div>
     );
   }
