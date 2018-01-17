@@ -26,17 +26,20 @@ export function registrationSuccess(bool) {
 }
 
 // Action to Fetch data from APi here
-export function registrationFetchData() {
+export function registrationFetchData(newUser) {
   // Post Body Here
   const postRequest = {
     method: 'POST',
-    email: 'akinyemi@gmail.com',
-    password: 'Akin',
+    name: newUser.name,
+    email: newUser.email,
+    password: newUser.password,
+    passwordConfirm: newUser.passwordConfirm,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
+  console.log(postRequest);
   // Dispatch Loading Status to Component
   return async (dispatch) => {
     dispatch(registrationIsLoading(true));
