@@ -84,6 +84,13 @@ class Login extends Component {
                     {view}
                   </p>
                 </div>
+                <div className="form-group">
+                  Dont have an account?
+                  <br />
+                  <a href="/register">
+                  Create Account
+                  </a>
+                </div>
               </form>
             </div>
           </div>

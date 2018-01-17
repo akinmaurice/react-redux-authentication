@@ -2,7 +2,7 @@ import React from 'react';
 
 const bg = require('../../css/bg.jpg');
 
-const PostCard = (props) => {
+const TodoCard = (props) => {
   const { details } = props;
   return (
     <div className="card-body">
@@ -29,4 +29,4 @@ const PostCard = (props) => {
   );
 };
 
-export default PostCard;
+export default TodoCard;

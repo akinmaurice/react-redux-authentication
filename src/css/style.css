@@ -6,7 +6,7 @@
 }
 
 body {
-    padding-top: 45px;
+    padding-top: 80px;
     font-family: panama;
     background: #FFF;
     color: #000 !important;
@@ -132,7 +132,7 @@ max-height: 450px;
   padding-top: 6rem;
   padding-bottom: 6rem;
   margin-bottom: 0;
-  background: #f9f9f9;
+  background: #ffffff;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 0;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
-import PhotoGrid from './PhotoGrid';
+import Grid from './Grid';
 import { postsFetchData } from '../actions/posts';
 
 function mapStatetoProps(state) {
@@ -48,7 +48,7 @@ class App extends Component {
         </div>
       );
     } else {
-      view = <PhotoGrid posts={this.props.posts} />;
+      view = <Grid posts={this.props.posts} />;
     }
     return (
       <div>

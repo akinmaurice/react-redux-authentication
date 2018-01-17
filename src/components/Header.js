@@ -29,6 +29,9 @@ class Header extends Component {
       navLinks = (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
+            <Link to="/create" className="navLink">Create Todo</Link> &nbsp;
+          </li>
+          <li className="nav-item">
             <Link to="/profile" className="navLink">{email}</Link> &nbsp;
           </li>
           <li className="nav-item">

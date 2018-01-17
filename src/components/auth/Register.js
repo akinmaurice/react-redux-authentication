@@ -58,13 +58,25 @@ class Register extends Component {
     const { success } = this.props;
     let view = '';
     if (hasErrored && errorMessage === '') {
-      view = 'There Was an Error Creating your Account!';
+      view = (
+        <p className="text-danger">
+        There Was an Error Creating your Account!
+        </p>
+      );
     } else if (hasErrored && errorMessage !== '') {
-      view = errorMessage;
+      view = (
+        <p className="text-danger">
+          {errorMessage}
+        </p>
+      );
     } else if (isLoading) {
       view = <i className="fa fa-2x fa-circle-o-notch fa-spin" />;
     } else if (success && !hasErrored) {
-      view = 'Account Created Please Login';
+      view = (
+        <p className="text-success">
+        Account Created Please Login
+        </p>
+      );
     }
     return (
       <div>
@@ -91,9 +103,14 @@ class Register extends Component {
                   </button>
                 </div>
                 <div className="form-group">
-                  <p className="text-danger">
-                    {view}
-                  </p>
+                  {view}
+                </div>
+                <div className="form-group">
+                  Already have an account?
+                  <br />
+                  <a href="/login">
+                  Login
+                  </a>
                 </div>
               </form>
             </div>
