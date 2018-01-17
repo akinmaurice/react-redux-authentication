@@ -22,12 +22,12 @@ const Jumbotron = props => (
       <div className="row text-center">
         <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12" />
         <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <Link to="/login" className="btn btn-block btn-lg jumboButton">
+          <Link to="/login" className="btn btn-block btn-warning jumboButton">
           Login
           </Link>
         </div>
         <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <Link to="/register" className="btn btn-block btn-lg jumboButton">
+          <Link to="/register" className="btn btn-block btn-warning jumboButton">
           Register
           </Link>
         </div>

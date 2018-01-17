@@ -105,10 +105,8 @@ background: linear-gradient(90deg,#e82c75,#FFC107);
 
 
 .jumboButton {
-  font-size: 16px;
-  background: linear-gradient(90deg,#3a7bd5,#3a6073);
-  color: #000000 !important;
   margin: 5px;
+  font-size: 13px;
 }
 
 .homeFont {

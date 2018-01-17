@@ -98,7 +98,7 @@ class Register extends Component {
                   <input ref={(input) => { this.passwordConfirm = input; }} type="password" name="password-confirm" placeholder="Confirm Password" className="form-control" />
                 </div>
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block">
+                  <button className="btn btn-warning btn-block">
                     Register
                   </button>
                 </div>

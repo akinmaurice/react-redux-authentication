@@ -75,7 +75,7 @@ class Login extends Component {
                   <input ref={(input) => { this.password = input; }} type="password" name="password" placeholder="Password" className="form-control" />
                 </div>
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block">
+                  <button className="btn btn-warning btn-block">
                 Login
                   </button>
                 </div>
