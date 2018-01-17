@@ -61,8 +61,6 @@ export function registrationFetchData(newUser) {
         dispatch(registrationIsLoading(false));
         // Get Reponse
         const apiResponse = response.data;
-
-        console.log(apiResponse.status);
         // If response is not 200
         if (apiResponse.status !== 200) {
           dispatch(registrationHasErrored(true));
@@ -72,7 +70,7 @@ export function registrationFetchData(newUser) {
           return dispatch(registrationSuccess(true));
         }
       })
-      .catch((error) => {
+      .catch(() => {
         dispatch(registrationHasErrored(true));
       });
   };

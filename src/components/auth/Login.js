@@ -69,10 +69,22 @@ class Login extends Component {
             <div className="col-lg-12">
               <form className="form-signin" onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <input ref={(input) => { this.email = input; }} type="email" name="email" placeholder="Email Address" className="form-control" />
+                  <input
+                    ref={(input) => { this.email = input; }}
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    className="form-control"
+                  />
                 </div>
                 <div className="form-group">
-                  <input ref={(input) => { this.password = input; }} type="password" name="password" placeholder="Password" className="form-control" />
+                  <input
+                    ref={(input) => { this.password = input; }}
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className="form-control"
+                  />
                 </div>
                 <div className="form-group">
                   <button className="btn btn-warning btn-block">

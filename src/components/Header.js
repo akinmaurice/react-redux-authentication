@@ -32,7 +32,9 @@ class Header extends Component {
             <Link to="/create" className="navLink">Create Todo</Link> &nbsp;
           </li>
           <li className="nav-item">
-            <Link to="/profile" className="navLink">{email}</Link> &nbsp;
+            <Link to="/profile" className="navLink">
+              {email}
+            </Link> &nbsp;
           </li>
           <li className="nav-item">
             <Link to="/logout" className="navLink">Logout</Link> &nbsp;

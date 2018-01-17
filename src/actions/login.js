@@ -56,6 +56,10 @@ export function loginFetchData(loginUser) {
   };
   // Dispatch Loading Status to Component
   return async (dispatch) => {
+    // Reset all Login Dispatch Actions
+    dispatch(loginHasErrored(false));
+    dispatch(loginErrorMessage(''));
+    // Set State to Loading
     dispatch(loginIsLoading(true));
     // Get Data From API HEre
     await axios.post('http://localhost:3001/user/login', postRequest)
@@ -77,7 +81,7 @@ export function loginFetchData(loginUser) {
         // Dispatch Authenticated Action
         dispatch(authenticated());
       })
-      .catch((error) => {
+      .catch(() => {
         dispatch(loginHasErrored(true));
       });
   };
