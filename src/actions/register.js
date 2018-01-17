@@ -21,7 +21,7 @@ export function registrationIsLoading(bool) {
 export function registrationSuccess(bool) {
   return {
     type: 'REGISTRATION_SUCCESS',
-    registration: bool,
+    registrationSuccess: bool,
   };
 }
 
@@ -50,6 +50,10 @@ export function registrationFetchData(newUser) {
   };
   // Dispatch Loading Status to Component
   return async (dispatch) => {
+    // Reset all Actions so state goes back to default
+    dispatch(registrationHasErrored(false));
+    dispatch(registrationErrorMessage(''));
+    // Set State to Loading
     dispatch(registrationIsLoading(true));
     // POST DATA to API HEre
     await axios.post('http://localhost:3001/user/register', postRequest)
@@ -57,13 +61,16 @@ export function registrationFetchData(newUser) {
         dispatch(registrationIsLoading(false));
         // Get Reponse
         const apiResponse = response.data;
+
+        console.log(apiResponse.status);
         // If response is not 200
         if (apiResponse.status !== 200) {
           dispatch(registrationHasErrored(true));
           dispatch(registrationErrorMessage(apiResponse.message));
+        } else if (apiResponse.status === 200) {
+        // Dispatch User Authenticated Action if succesful
+          return dispatch(registrationSuccess(true));
         }
-        // Dispatch User Authenticated Action
-        return dispatch(registrationSuccess(true));
       })
       .catch((error) => {
         dispatch(registrationHasErrored(true));

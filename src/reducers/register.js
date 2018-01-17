@@ -28,7 +28,7 @@ export function registrationErrorMessage(state = '', action) {
 export function registrationSuccess(state = false, action) {
   switch (action.type) {
     case 'REGISTRATION_SUCCESS':
-      return action.success;
+      return action.registrationSuccess;
     default:
       return state;
   }

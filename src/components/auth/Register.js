@@ -55,6 +55,7 @@ class Register extends Component {
     const { errorMessage } = this.props;
     const { hasErrored } = this.props;
     const { isLoading } = this.props;
+    const { success } = this.props;
     let view = '';
     if (hasErrored && errorMessage === '') {
       view = 'There Was an Error Creating your Account!';
@@ -62,6 +63,8 @@ class Register extends Component {
       view = errorMessage;
     } else if (isLoading) {
       view = <i className="fa fa-2x fa-circle-o-notch fa-spin" />;
+    } else if (success && !hasErrored) {
+      view = 'Account Created Please Login';
     }
     return (
       <div>
