@@ -12,6 +12,7 @@ import Register from './components/auth/Register';
 import Logout from './components/auth/Logout';
 import NotFound from './components/NotFound';
 import Profile from './components/Profile';
+import NewTodo from './components/NewTodo';
 // import authenticated action from  Login action
 import { authenticated } from './actions/login';
 
@@ -46,12 +47,13 @@ const Root = () => (
         <div>
           <Switch>
             <Route path="/" exact component={noRequireAuth(Main)} />
-            <Route path="/timeline" exact component={requireAuth(App)} />
-            <Route path="/view/:postId" exact component={Single} />
+            <Route path="/home" exact component={requireAuth(App)} />
+            <Route path="/todo/:slug" exact component={Single} />
             <Route path="/login" exact component={noRequireAuth(Login)} />
             <Route path="/register" exact component={noRequireAuth(Register)} />
             <Route path="/logout" exact component={requireAuth(Logout)} />
             <Route path="/profile" exact component={requireAuth(Profile)} />
+            <Route path="/create" exact component={requireAuth(NewTodo)} />
             <Route component={NotFound} />
           </Switch>
         </div>

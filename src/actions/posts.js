@@ -43,7 +43,6 @@ export function postsFetchData() {
         dispatch(postsIsLoading(false));
         // Get Reponse
         const apiResponse = response.data;
-        console.log(apiResponse.todos);
         // Handle Error Response
         if (apiResponse.status !== 200) {
           return dispatch(postsHasErrored(true));

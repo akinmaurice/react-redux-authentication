@@ -1,31 +1,38 @@
 import React from 'react';
-
-const bg = require('../../css/bg.jpg');
+import { Link } from 'react-router-dom';
 
 const TodoCard = (props) => {
   const { details } = props;
+  const todoUrl = `/todo/${details.slug}`;
+  let view = <p />;
+  if (details.completed) {
+    view = (
+      <p className="text-success">
+        Completed
+      </p>
+    );
+  } else if (!details.completed) {
+    view = (
+      <p className="text-danger">
+        Pending
+      </p>
+    );
+  }
   return (
-    <div className="card-body">
-      <div className="postHeader text-left">
-        <div className="round round-lg text-center">
-          <span className="fa fa-user" />
+    <Link to={todoUrl} className="navLink">
+      <div className="card-body todoCard">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-10 col-md-10 col-sm-10 col-10 text-left todoTitle">
+              {details.title}
+            </div>
+            <div className="col-lg-2 col-md-2 col-sm-2 col-2 text-right todoStatus">
+              {view}
+            </div>
+          </div>
         </div>
-        &nbsp; UserName
       </div>
-      <div className="image-wrap">
-        <br />
-        <img src={bg} alt="bgImage" />
-      </div>
-      <div className="postFooter text-left">
-        <br />
-        <ul className="list-inline">
-          <li className="list-inline-item">
-            <i className="fa fa-3x fa-heart-o" />
-          </li>
-        </ul>
-        <p>{details.urlId} Likes </p>
-      </div>
-    </div>
+    </Link>
   );
 };
 

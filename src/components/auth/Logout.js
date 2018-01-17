@@ -23,8 +23,10 @@ class Logout extends Component {
 
   render() {
     return (
-      <div>
-        Signed Out...
+      <div className="text-center">
+        Signed Out
+        <br />
+        <a href="/">Click here to continue</a>
       </div>
     );
   }
