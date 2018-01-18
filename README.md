@@ -1,6 +1,6 @@
 # GramClone
 
-Instagram Clone SPA (Single Page Application) Built using React JS, Redux,  React-Router, Redux-Thunk to show User Authentication Through an API.
+React-Redux Authentication SPA (Single Page Application) Built using React JS, Redux,  React-Router, Redux-Thunk to show User Authentication Through an API.
 
 Authenticated Users are Able to View the Images Available
 
@@ -11,8 +11,8 @@ Authenticated Users are Able to View the Images Available
 
 ## Getting Started
 
-  1. `git clone https://github.com/akinmaurice/gram-clone.git`
-  2. `cd gram-clone`
+  1. `git clone https://github.com/akinmaurice/react-redux-authentication.git`
+  2. `cd react-redux-authentication`
   3. `npm install`
   4. `npm start`
 
