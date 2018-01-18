@@ -1,32 +1,33 @@
 import axios from 'axios';
 
 // WHen Data Fetch Encounters an Error
-export function postsHasErrored(bool) {
+export function postHasErrored(bool) {
   return {
-    type: 'POSTS_HAS_ERRORED',
+    type: 'POST_HAS_ERRORED',
     hasErrored: bool,
   };
 }
 
 // Action for when Data Fetch is in Progress
-export function postsIsLoading(bool) {
+export function postIsLoading(bool) {
   return {
-    type: 'POSTS_IS_LOADING',
+    type: 'POST_IS_LOADING',
     isLoading: bool,
   };
 }
 
+
 // Action for When Data Fecth is Successful
-export function postsFetchDataSuccess(posts) {
+export function postFetchDataSuccess(post) {
   return {
-    type: 'POSTS_FETCH_DATA_SUCCESS',
-    posts,
+    type: 'POST_FETCH_DATA_SUCCESS',
+    post,
   };
 }
 
 
-// Action to Fetch all Todos from API
-export function postsFetchData() {
+// Action to Fetch each from API
+export function postFetchData(slug) {
   const token = localStorage.getItem('token');
   const requestBody = {
     headers: {
@@ -36,22 +37,23 @@ export function postsFetchData() {
     },
   };
   return async (dispatch) => {
-    dispatch(postsHasErrored(false));
+    dispatch(postHasErrored(false));
     // Dispatch Loading Status to Component
-    dispatch(postsIsLoading(true));
+    dispatch(postIsLoading(true));
     // Get Data from API
-    await axios.get('http://localhost:3001/todos', requestBody)
+    await axios.get(`http://localhost:3001/todo/${slug}`, requestBody)
       .then((response) => {
-        dispatch(postsIsLoading(false));
+        dispatch(postIsLoading(false));
         // Get Reponse
         const apiResponse = response.data;
         // Handle Error Response
         if (apiResponse.status !== 200) {
-          return dispatch(postsHasErrored(true));
+          return dispatch(postHasErrored(true));
         }
-        const posts = apiResponse.todos;
-        return dispatch(postsFetchDataSuccess(posts));
+        const todoResponse = apiResponse.todo;
+        const post = todoResponse[0];
+        return dispatch(postFetchDataSuccess(post));
       })
-      .catch(() => dispatch(postsHasErrored(true)));
+      .catch(() => dispatch(postHasErrored(true)));
   };
 }
