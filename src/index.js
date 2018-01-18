@@ -33,7 +33,7 @@ import './css/style.css';
 const user = localStorage.getItem('token');
 
 if (user) {
-  store.dispatch(authenticated());
+  store.dispatch(authenticated(true));
 }
 /*
 Stateless Router

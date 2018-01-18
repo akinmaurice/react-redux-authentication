@@ -35,10 +35,10 @@ export function loginSuccess(user) {
 }
 
 // Authenticated Action
-export function authenticated() {
+export function authenticated(bool) {
   return {
     type: 'AUTHENTICATED',
-    authenticated: true,
+    authenticated: bool,
   };
 }
 
@@ -79,10 +79,23 @@ export function loginFetchData(loginUser) {
         // Dispatch User Authenticated Action
         dispatch(loginSuccess(user));
         // Dispatch Authenticated Action
-        dispatch(authenticated());
+        dispatch(authenticated(true));
       })
       .catch(() => {
         dispatch(loginHasErrored(true));
       });
+  };
+}
+
+// Action to Logout User
+export default function logoutUser() {
+  localStorage.clear();
+  return (dispatch) => {
+    // Reset all Login Dispatch Actions
+    dispatch(loginHasErrored(false));
+    dispatch(loginErrorMessage(''));
+    dispatch(loginSuccess({}));
+    // Dispatch Authenticated Action
+    dispatch(authenticated(false));
   };
 }

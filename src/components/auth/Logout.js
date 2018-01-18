@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // Import Logout Action
-import logoutUser from '../../actions/logout';
+import logoutUser from '../../actions/login';
 
 function mapStateToProps(state) {
   return {
     authenticated: state.authenticated,
     user: state.user,
-    logout: state.logoutUser,
   };
 }
 

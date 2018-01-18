@@ -3,7 +3,6 @@ import { posts, postsHasErrored, postsIsLoading } from './posts';
 import { post, postHasErrored, postIsLoading, postErrorMessge, newPostSuccess } from './post';
 import { user, loginHasErrored, loginIsLoading, loginErrorMessage, authenticated } from './login';
 import { registrationSuccess, registrationIsLoading, registrationErrorMessage, registrationHasErrored } from './register';
-import logoutUser from './logout';
 
 export default combineReducers({
   posts,
@@ -23,6 +22,5 @@ export default combineReducers({
   registrationIsLoading,
   registrationErrorMessage,
   registrationHasErrored,
-  logoutUser,
 });
 

@@ -24,6 +24,23 @@ export function postFetchDataSuccess(post) {
   };
 }
 
+// Post Error Handler
+export function postErrorMessage(string) {
+  return {
+    type: 'POST_ERROR_MESSAGE',
+    postErrorMessage: string,
+  };
+}
+
+// Action for when Data Fetch is in Progress
+export function newPostSuccess(bool) {
+  return {
+    type: 'NEW_POST_SUCCESS',
+    newPostSuccess: bool,
+  };
+}
+
+
 // Action to Fetch each from API
 export function postFetchData(slug) {
   const token = localStorage.getItem('token');
@@ -36,6 +53,7 @@ export function postFetchData(slug) {
   };
   return async (dispatch) => {
     dispatch(postHasErrored(false));
+    dispatch(newPostSuccess(false));
     // Dispatch Loading Status to Component
     dispatch(postIsLoading(true));
     // Get Data from API
@@ -53,22 +71,6 @@ export function postFetchData(slug) {
         return dispatch(postFetchDataSuccess(post));
       })
       .catch(() => dispatch(postHasErrored(true)));
-  };
-}
-
-// Post Error Handler
-export function postErrorMessage(string) {
-  return {
-    type: 'POST_ERROR_MESSAGE',
-    postErrorMessage: string,
-  };
-}
-
-// Action for when Data Fetch is in Progress
-export function newPostSuccess(bool) {
-  return {
-    type: 'NEW_POST_SUCCESS',
-    newPostSuccess: bool,
   };
 }
 
