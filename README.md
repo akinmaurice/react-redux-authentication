@@ -1,8 +1,12 @@
 # GramClone
 
-React-Redux Authentication SPA (Single Page Application) Built using React JS, Redux,  React-Router, Redux-Thunk to show User Authentication Through an API.
+React-Redux Authentication SPA (Single Page Application),
 
-Authenticated Users are Able to View the Images Available
+Built using React JS, Redux,  React-Router, Redux-Thunk to show User Authentication Through an API.
+
+Authenticated Users are Able to View their Todos and Create New Todos
+
+REST API Server for this application is available [Here](https://github.com/akinmaurice/todo-API)
 
 ## Features
 
