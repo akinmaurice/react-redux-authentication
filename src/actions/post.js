@@ -16,7 +16,6 @@ export function postIsLoading(bool) {
   };
 }
 
-
 // Action for When Data Fecth is Successful
 export function postFetchDataSuccess(post) {
   return {
@@ -24,7 +23,6 @@ export function postFetchDataSuccess(post) {
     post,
   };
 }
-
 
 // Action to Fetch each from API
 export function postFetchData(slug) {
@@ -55,5 +53,76 @@ export function postFetchData(slug) {
         return dispatch(postFetchDataSuccess(post));
       })
       .catch(() => dispatch(postHasErrored(true)));
+  };
+}
+
+// Post Error Handler
+export function postErrorMessage(string) {
+  return {
+    type: 'POST_ERROR_MESSAGE',
+    postErrorMessage: string,
+  };
+}
+
+// Action for when Data Fetch is in Progress
+export function newPostSuccess(bool) {
+  return {
+    type: 'NEW_POST_SUCCESS',
+    newPostSuccess: bool,
+  };
+}
+
+// Action to Create New Todo
+export function newTodoFetchData(newTodo) {
+  // Get Token From Storage
+  const token = localStorage.getItem('token');
+  // Post Body Here
+  const body = newTodo;
+  const postRequest = {
+    headers: {
+      authorization: token,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+  // Dispatch Loading Status to Component
+  return async (dispatch) => {
+    // Reset all Actions so state goes back to default
+    dispatch(postHasErrored(false));
+    dispatch(postErrorMessage(''));
+    // Set State to Loading
+    dispatch(postIsLoading(true));
+    // POST DATA to API HEre
+    await axios.post('http://localhost:3001/todo/createTodo', body, postRequest)
+      .then((response) => {
+        dispatch(postIsLoading(false));
+        // Get Reponse
+        const apiResponse = response.data;
+        console.log(apiResponse);
+        // If response is not 200
+        if (apiResponse.status !== 200) {
+          dispatch(postHasErrored(true));
+          dispatch(postErrorMessage(apiResponse.message));
+        } else if (apiResponse.status === 200) {
+        // Dispatch Action if successful
+          const post = apiResponse.todo;
+          dispatch(postFetchDataSuccess(post));
+          dispatch(newPostSuccess(true));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(postHasErrored(true));
+      });
+  };
+}
+
+// Set Post State to empty
+export function resetPostState() {
+  return (dispatch) => {
+    dispatch(postHasErrored(false));
+    dispatch(postErrorMessage(''));
+    dispatch(postFetchDataSuccess({}));
+    dispatch(newPostSuccess(false));
   };
 }

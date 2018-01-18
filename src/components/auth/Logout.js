@@ -7,6 +7,7 @@ function mapStateToProps(state) {
   return {
     authenticated: state.authenticated,
     user: state.user,
+    logout: state.logoutUser,
   };
 }
 
@@ -20,7 +21,6 @@ class Logout extends Component {
   componentWillMount() {
     this.props.logoutUser();
   }
-
   render() {
     return (
       <div className="text-center">
