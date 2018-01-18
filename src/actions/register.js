@@ -56,7 +56,7 @@ export function registrationFetchData(newUser) {
     // Set State to Loading
     dispatch(registrationIsLoading(true));
     // POST DATA to API HEre
-    await axios.post('http://localhost:3001/user/register', postRequest)
+    await axios.post('https://akin-react-auth-api.herokuapp.com/user/register', postRequest)
       .then((response) => {
         dispatch(registrationIsLoading(false));
         // Get Reponse

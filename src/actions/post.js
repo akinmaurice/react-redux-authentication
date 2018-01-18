@@ -57,7 +57,7 @@ export function postFetchData(slug) {
     // Dispatch Loading Status to Component
     dispatch(postIsLoading(true));
     // Get Data from API
-    await axios.get(`http://localhost:3001/todo/${slug}`, requestBody)
+    await axios.get(`https://akin-react-auth-api.herokuapp.com/todo/${slug}`, requestBody)
       .then((response) => {
         dispatch(postIsLoading(false));
         // Get Reponse
@@ -95,12 +95,11 @@ export function newTodoFetchData(newTodo) {
     // Set State to Loading
     dispatch(postIsLoading(true));
     // POST DATA to API HEre
-    await axios.post('http://localhost:3001/todo/createTodo', body, postRequest)
+    await axios.post('https://akin-react-auth-api.herokuapp.com/todo/createTodo', body, postRequest)
       .then((response) => {
         dispatch(postIsLoading(false));
         // Get Reponse
         const apiResponse = response.data;
-        console.log(apiResponse);
         // If response is not 200
         if (apiResponse.status !== 200) {
           dispatch(postHasErrored(true));
@@ -112,8 +111,7 @@ export function newTodoFetchData(newTodo) {
           dispatch(newPostSuccess(true));
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         dispatch(postHasErrored(true));
       });
   };

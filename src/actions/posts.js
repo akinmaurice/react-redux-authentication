@@ -40,7 +40,7 @@ export function postsFetchData() {
     // Dispatch Loading Status to Component
     dispatch(postsIsLoading(true));
     // Get Data from API
-    await axios.get('http://localhost:3001/todos', requestBody)
+    await axios.get('https://akin-react-auth-api.herokuapp.com/todos', requestBody)
       .then((response) => {
         dispatch(postsIsLoading(false));
         // Get Reponse

@@ -62,7 +62,7 @@ export function loginFetchData(loginUser) {
     // Set State to Loading
     dispatch(loginIsLoading(true));
     // Get Data From API HEre
-    await axios.post('http://localhost:3001/user/login', postRequest)
+    await axios.post('https://akin-react-auth-api.herokuapp.com/user/login', postRequest)
       .then((response) => {
         dispatch(loginIsLoading(false));
         // Get Reponse
