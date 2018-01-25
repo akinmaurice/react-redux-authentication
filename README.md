@@ -1,4 +1,4 @@
-# GramClone
+# React-Redux-Authentication
 
 React-Redux Authentication SPA (Single Page Application),
 
