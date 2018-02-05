@@ -71,7 +71,7 @@ class Register extends Component {
         </p>
       );
     } else if (isLoading) {
-      view = <i className="fa fa-2x fa-circle-o-notch fa-spin" />;
+      view = <i className="fa fa-2x fa-circle-o-notch fa-spin text-danger" />;
     } else if (success && !hasErrored) {
       view = (
         <p className="text-success">

@@ -43,7 +43,7 @@ class App extends Component {
           <div className="row">
             <div className="col-lg-12">
               <br />
-              <i className="fa fa-2x fa-circle-o-notch fa-spin" />
+              <i className="fa fa-2x fa-circle-o-notch fa-spin text-danger" />
             </div>
           </div>
         </div>

@@ -25,6 +25,18 @@ export function loginErrorMessage(string) {
   };
 }
 
+/*
+ Login Requested function to
+Reset all Login Dispatch Actions
+*/
+export function loginRequested() {
+  return {
+    type: 'LOGIN_REQUESTED',
+    loginErrorMessage: '',
+    isLoading: true,
+    hasErrored: false,
+  };
+}
 
 // Action for When Data Fecth is Successful
 export function loginSuccess(user) {
@@ -57,10 +69,7 @@ export function loginFetchData(loginUser) {
   // Dispatch Loading Status to Component
   return async (dispatch) => {
     // Reset all Login Dispatch Actions
-    dispatch(loginHasErrored(false));
-    dispatch(loginErrorMessage(''));
-    // Set State to Loading
-    dispatch(loginIsLoading(true));
+    dispatch(loginRequested());
     // Get Data From API HEre
     await axios.post('https://akin-react-auth-api.herokuapp.com/user/login', postRequest)
       .then((response) => {

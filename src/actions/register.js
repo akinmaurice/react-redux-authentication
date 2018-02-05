@@ -33,6 +33,18 @@ export function registrationErrorMessage(string) {
   };
 }
 
+/*
+Register Requested function to
+Reset all Register Dispatch Actions
+*/
+export function registrationRequested() {
+  return {
+    type: 'REGISTRATION_REQUESTED',
+    registrationErrorMessage: '',
+    isLoading: true,
+    hasErrored: false,
+  };
+}
 
 // Action to Fetch data from APi here
 export function registrationFetchData(newUser) {
@@ -50,11 +62,11 @@ export function registrationFetchData(newUser) {
   };
   // Dispatch Loading Status to Component
   return async (dispatch) => {
-    // Reset all Actions so state goes back to default
-    dispatch(registrationHasErrored(false));
-    dispatch(registrationErrorMessage(''));
-    // Set State to Loading
-    dispatch(registrationIsLoading(true));
+    /*
+   Reset all Register Dispatch Actions
+   to default and the Loading State to true
+   */
+    dispatch(registrationRequested());
     // POST DATA to API HEre
     await axios.post('https://akin-react-auth-api.herokuapp.com/user/register', postRequest)
       .then((response) => {
